@@ -15,7 +15,8 @@ import mongoose from 'mongoose';
 // Import routes
 import rootRoutes from './routes/root.js';
 import userRouter from './routes/user.route.js';
-import noteRouter from './routes/note.route.js'
+import noteRouter from './routes/note.route.js';
+import authRouter from './routes/auth.route.js';
 
 // Create the `__dirname` equivalent
 const __filename = fileURLToPath(import.meta.url);
@@ -38,6 +39,7 @@ app.use('/', express.static(path.join(__dirname, 'public')));
 
 // Routes
 app.use('/', rootRoutes);
+app.use('/auth', authRouter)
 app.use('/users', userRouter);
 app.use('/notes', noteRouter);
 
